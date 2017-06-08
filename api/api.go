@@ -3,9 +3,10 @@ package api
 import (
 	"log"
 
+	"github.com/findcoo/gin-blueprint/api/model"
+	"github.com/findcoo/gin-blueprint/conf"
 	"github.com/gin-gonic/gin"
-	"github.com/usjeong/gin-blueprint/api/model"
-	"github.com/usjeong/gin-blueprint/conf"
+	"github.com/spf13/viper"
 )
 
 // App inject configuration

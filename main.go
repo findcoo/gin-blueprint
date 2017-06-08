@@ -7,10 +7,10 @@ import (
 
 	cors "gopkg.in/gin-contrib/cors.v1"
 
+	"github.com/findcoo/gin-blueprint/api"
+	"github.com/findcoo/gin-blueprint/conf"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/usjeong/gin-blueprint/api"
-	"github.com/usjeong/gin-blueprint/conf"
 )
 
 func main() {

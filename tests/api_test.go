@@ -3,11 +3,11 @@ package tests
 import (
 	"testing"
 
+	"github.com/findcoo/gin-blueprint/api"
+	"github.com/findcoo/gin-blueprint/conf"
+	"github.com/findcoo/goTest"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
-	"github.com/usjeong/gin-blueprint/api"
-	"github.com/usjeong/gin-blueprint/conf"
-	"github.com/usjeong/testSuit"
 )
 
 var (

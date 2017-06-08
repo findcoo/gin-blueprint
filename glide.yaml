@@ -1,5 +1,10 @@
 package: github.com/usjeong/gin-blueprint
 import:
+- package: github.com/findcoo/gin-blueprint
+  subpackages:
+  - api
+  - api/model
+  - conf
 - package: github.com/gin-contrib/sessions
 - package: github.com/gin-gonic/gin
   version: ~1.1.4
@@ -10,9 +15,9 @@ import:
 - package: gopkg.in/gin-contrib/cors.v1
   version: ~1.2.0
 testImport:
+- package: github.com/findcoo/goTest
+  version: ~1.0.0
 - package: github.com/stretchr/testify
   version: ~1.1.4
   subpackages:
   - assert
-- package: github.com/usjeong/testSuit
-  version: ~1.0.0
