@@ -6,6 +6,7 @@ import (
 	"time"
 
 	cors "gopkg.in/gin-contrib/cors.v1"
+	pprof "gopkg.in/gin-contrib/pprof.v1"
 
 	"github.com/findcoo/gin-blueprint/api"
 	"github.com/findcoo/gin-blueprint/conf"
