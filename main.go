@@ -10,7 +10,6 @@ import (
 
 	"github.com/findcoo/gin-blueprint/api"
 	"github.com/findcoo/gin-blueprint/conf"
-	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,22 +17,22 @@ func main() {
 	caseOne := conf.NewCaseOne("production")
 	env := caseOne.Env
 	api.NewApp(caseOne)
-
-	redisHost := env.GetString("Store")
-
 	gin.SetMode(gin.ReleaseMode)
 
 	r := gin.Default()
 
-	sessionStore, err := sessions.NewRedisStore(10, "tcp", redisHost, env.GetString("StorePassword"), []byte("secret"))
+	/*
+		redisHost := env.GetString("Store")
+		sessionStore, err := sessions.NewRedisStore(10, "tcp", redisHost, env.GetString("StorePassword"), []byte("secret"))
 
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Println("session type: redis")
+		if err != nil {
+			log.Fatal(err)
+		}
+		log.Println("session type: redis")
+	*/
+	// r.Use(sessions.Sessions("appsession", sessionStore))
 
 	r.Use(cors.Default())
-	r.Use(sessions.Sessions("appsession", sessionStore))
 	api.SetRouter(r)
 
 	pprof.Register(r, nil)
@@ -47,7 +46,7 @@ func main() {
 	}
 	log.Printf("Start server\n\tport: %s\n", server.Addr)
 
-	if server.ListenAndServe() != nil {
+	if err := server.ListenAndServe(); err != nil {
 		log.Fatal(err)
 	}
 }
